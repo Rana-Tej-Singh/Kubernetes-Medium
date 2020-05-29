@@ -1,0 +1,21 @@
+kind: Pod
+apiVersion: v1
+metadata:
+   name: cluster-one
+   labels:
+     run: cluster
+spec:
+  containers:
+    - image: busybox
+      name: cluster1
+      command:
+       - "/bin/bash"
+       - "-c"
+       - "while true; do date +%T > /tmp/date.txt;sleep 2;done"
+      volumeMounts:
+       - name: cluster
+         mountPath: /tmp/
+  volumes:
+    - name: cluster
+      emptyDir: {}
+        
