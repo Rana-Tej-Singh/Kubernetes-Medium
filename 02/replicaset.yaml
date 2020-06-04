@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: ReplicaSet
+metadata:
+    name: multiple-set
+spec:
+    replicas: 5
+    selector:
+       matchLabels:
+          app: run
+    template:
+       metadata:
+          name: pot
+          labels:
+            app: run
+       spec:
+         containers:
+           - image: nginx:alpine
+             name: nginx
+             ports:
+              - containerPort: 80
+             
