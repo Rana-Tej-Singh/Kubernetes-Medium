@@ -1,0 +1,7 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+    name: conf-data
+data:
+   HOST_DNS_SERVER: 8.8.8.8
+   HOST_IP_ADDRESS: 0.0.0.0
