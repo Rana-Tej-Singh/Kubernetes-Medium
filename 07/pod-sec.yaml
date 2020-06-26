@@ -1,0 +1,26 @@
+kind: PodSecurityPolicy
+apiVersion: policy/v1beta1
+metadata:
+    name: pod-sec
+spec:
+   privileged: false
+   allowPrivilegeEscalation: false
+   runAsUser:
+     rule: MustRunAsNonRoot
+   volumes:
+   - configMap
+   - persistentVolumeClaim
+   - secret
+   - hostPath
+   supplementalGroups:
+     rule: MustRunAs
+     ranges:
+     - min: 2
+       max: 10
+   fsGroup:
+   - min: 2
+     max: 10
+   seLinux:
+    rule: RunAsAny
+   readOnlyRootFilesystem: false
+      
