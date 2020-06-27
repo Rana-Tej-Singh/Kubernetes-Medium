@@ -1,0 +1,9 @@
+kind: NetworkPolicy          # Must know that network plugins/providers supports network policy.
+apiVersion: networking.k8s.io/v1
+metadata:
+   name: deny-all
+spec:
+   podSelector:
+      matchLabels: {}             # Empty selector will block all traffic in current namespaces
+   policyTypes:                   # By default if we will not assign any types, ingress will choose.
+   - ingress
