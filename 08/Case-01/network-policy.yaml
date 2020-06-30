@@ -1,0 +1,14 @@
+kind: NetworkPolicy
+apiVersion: networking.k8s.io/v1
+metadata:
+   name: allow-few
+spec:
+  podSelector:
+     matchLabels:
+        app: web
+  ingress:
+   - from:
+       - podSelector:             # Only "app: frontend" labels Pod can communicate with "app: web" labels Pod, Rest will be blocked.
+            matchLabels:
+               app: frontend
+         
