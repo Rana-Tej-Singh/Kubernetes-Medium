@@ -1,0 +1,11 @@
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+   name: quota
+spec:
+   secrets: "2"
+   pods: "15"
+   configmaps: "2"
+   persistentvolumeclaims: "5"
+   requests.storage: 5Gi
+   services: "4"
