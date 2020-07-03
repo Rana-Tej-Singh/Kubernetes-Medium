@@ -1,0 +1,11 @@
+# Binding is namespace scoped.  You can check it by ```kubectl api-resources --namespaced=true```
+
+apiVersion: v1
+kind: Binding
+metadata:
+   name: alpha      # Should be Pod Name
+target:
+   kind: Node
+   apiVersion: v1
+   name: node02                 # Node's name
+   namespace: default           # Default namespace
