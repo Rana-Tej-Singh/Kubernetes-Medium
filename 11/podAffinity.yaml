@@ -11,5 +11,9 @@ spec:
    affinity:
      podAffinity:
        requiredDuringSchedulingIgnoredDuringExecution:
-           
+           labelSelector:
+            - matchExpressions:
+                - key: check
+                  operator: In
+                  values: ["done"]
      
