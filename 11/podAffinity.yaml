@@ -1,0 +1,15 @@
+kind: Pod
+metadata:
+   name: podaffinity
+   labels:
+     web: app-server
+apiVersion: v1
+spec:
+   containers:
+    - image: nginx
+      name: nginx
+   affinity:
+     podAffinity:
+       requiredDuringSchedulingIgnoredDuringExecution:
+           
+     
