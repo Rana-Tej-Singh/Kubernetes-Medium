@@ -1,0 +1,30 @@
+kind: Service
+metadata:
+   name: post-service
+apiVersion: v1
+spec:
+  type: NodePort
+  ports:
+  - port: 80
+    targetPort: 80
+    nodePort: 32500
+  selector:
+     hook: post
+---
+kind: Pod
+metadata:
+  name: post-start
+  labels:
+    hook: post
+apiVersion: v1
+spec:
+  containers:
+   - image: nginx
+     name: post-container
+     lifecycle:
+       postStart:
+         exec:
+           command:
+            - sh
+            - -c
+            - echo "Testing successfully done!!" > /usr/share/nginx/html/index.html
